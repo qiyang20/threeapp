@@ -16,8 +16,10 @@ import axesHelper from '@/three/axeshelper'
 import renderer from '@/three/renderer'
 // 初始化调整屏幕
 import '@/three/init'
+// 导入每一帧的执行函数
 import animate from '@/three/animate'
-
+// 导入添加物体函数
+import createMesh from '@/three/createMesh'
 // 场景元素div
 let sceneDiv = ref(null)
 
@@ -27,7 +29,8 @@ console.log(gui)
 scene.add(camera)
 // 添加辅助坐标轴
 scene.add(axesHelper)
-
+// 创建物体
+createMesh()
 onMounted(() => {
   sceneDiv.value.appendChild(renderer.domElement)
   animate()
