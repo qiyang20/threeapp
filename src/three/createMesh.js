@@ -1,4 +1,4 @@
-import craeteCity from './mesh/city'
+import craeteCity from './mesh/City'
 export default function createMesh() {
   craeteCity()
 }

@@ -3,6 +3,8 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 import scene from '../scene'
 import modifyCityMaterial from '../modify/modifyCityMaterial'
+import FlyLine from './FlyLine'
+import FlyLineShader from './FlyLineShader'
 
 export default function craeteCity() {
   const gltfLoader = new GLTFLoader()
@@ -17,6 +19,14 @@ export default function craeteCity() {
         modifyCityMaterial(item)
       }
     })
+    // 添加特效
     scene.add(gltf.scene)
+    // 添加飞线
+    const flyLine = new FlyLine()
+    scene.add(flyLine.mesh)
+
+    // 添加着色器飞线
+    const flyLineShader = new FlyLineShader()
+    scene.add(flyLineShader.mesh)
   })
 }
