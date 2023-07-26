@@ -8,6 +8,7 @@ import FlyLineShader from './FlyLineShader'
 import MeshLine from './MeshLine'
 import LightWall from './LightWall'
 import LightRadar from './LightRadar'
+import AlarmSprite from './AlarmSprite'
 
 export default function craeteCity() {
   const gltfLoader = new GLTFLoader()
@@ -45,5 +46,13 @@ export default function craeteCity() {
     // 添加雷达
     const lightRadar = new LightRadar()
     scene.add(lightRadar.mesh)
+
+    // 添加警告标识
+    const alarmSprite = new AlarmSprite()
+    scene.add(alarmSprite.mesh)
+
+    alarmSprite.onClick(function (e) {
+      console.log(11111, e)
+    })
   })
 }

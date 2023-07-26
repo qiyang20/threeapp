@@ -25,7 +25,7 @@ export default class LightWall {
     gsap.to(this.mesh.scale, {
       x: 2,
       z: 2,
-      diration: 1,
+      duration: 1,
       repeat: -1,
       yoyo: true
     })
