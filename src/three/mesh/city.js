@@ -7,6 +7,7 @@ import FlyLine from './FlyLine'
 import FlyLineShader from './FlyLineShader'
 import MeshLine from './MeshLine'
 import LightWall from './LightWall'
+import LightRadar from './LightRadar'
 
 export default function craeteCity() {
   const gltfLoader = new GLTFLoader()
@@ -40,5 +41,9 @@ export default function craeteCity() {
     // 添加光强
     const ligthWall = new LightWall()
     scene.add(ligthWall.mesh)
+
+    // 添加雷达
+    const lightRadar = new LightRadar()
+    scene.add(lightRadar.mesh)
   })
 }
