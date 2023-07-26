@@ -5,6 +5,8 @@ import scene from '../scene'
 import modifyCityMaterial from '../modify/modifyCityMaterial'
 import FlyLine from './FlyLine'
 import FlyLineShader from './FlyLineShader'
+import MeshLine from './MeshLine'
+import LightWall from './LightWall'
 
 export default function craeteCity() {
   const gltfLoader = new GLTFLoader()
@@ -17,6 +19,12 @@ export default function craeteCity() {
         })
         item.material = cityMaterial
         modifyCityMaterial(item)
+        if (item.name == 'Layerbuildings') {
+          const meshLine = new MeshLine(item.geometry)
+          const size = item.scale.x
+          meshLine.mesh.scale.set(size, size, size)
+          scene.add(meshLine.mesh)
+        }
       }
     })
     // 添加特效
@@ -28,5 +36,9 @@ export default function craeteCity() {
     // 添加着色器飞线
     const flyLineShader = new FlyLineShader()
     scene.add(flyLineShader.mesh)
+
+    // 添加光强
+    const ligthWall = new LightWall()
+    scene.add(ligthWall.mesh)
   })
 }
